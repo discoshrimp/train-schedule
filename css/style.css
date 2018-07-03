@@ -1,0 +1,29 @@
+.card{
+	font-family: Arial, Helvetica, sans-serif;
+}
+.card-body{
+	border:solid;
+	border-color: gray;
+	border-top-color: transparent;
+	border-width: thin;
+	border-radius: 5px;
+	border-top-left-radius: 0px;
+	border-top-right-radius: 0px;
+}	
+.card-header{
+
+	color: white;
+	font-size:20px;
+	border-radius: 5px;
+	border-bottom-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.jumbotron{
+	text-align: center;
+	background: #337ab7;
+	color: white;
+}
+.container {
+	background-image: url("../images/train-noir.jpg");
+}

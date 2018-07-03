@@ -9,16 +9,72 @@
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" media="screen" href="css/style.css"/>
-	<script src="main.js"></script>
+	<link href="images/train-noir.jpg">
 </head>
 <body>
-	
+<div>
+	<div class="container ">
+		<div class="jumbotron">
+			<h1>Magic Train Scheduler</h1>
+		</div>
+		<div class="card">
+			<div class="card-header bg-primary">
+				Current Train Schedule
+			</div>
+			<div class="card-body">
+				<div class="col-xs-3">
+					<ul class="list-group list-group-flush" id="trainDataName">
+					</ul>
+				</div>
+				<div class="col-xs-3">
+					<ul class="list-group list-group-flush" id="trainDataDestination">
+					</ul>
+				</div>
+				<div class="col-xs-3">
+					<ul class="list-group list-group-flush" id="trainDataTime">
+					</ul>
+				</div>
+				<div class="col-xs-3">
+					<ul class="list-group list-group-flush" id="trainDataFrequency">
+					</ul>
+				</div>
+			</div>
+		</div>
+		<br><br>
+		<div class="card">
+			<div class="card-header bg-primary">
+				Add a train
+			</div>
+			<div class="card-body">
+				<form id="trainForm">
+					<div class="form-row col-xs">
+						<label for="train-name">Train Name</label>
+						<input type="text" class="form-control" id="train-name">
+					</div>
+					<div class="form-row col-xs">
+						<label for="destination">Destination</label>
+						<input type="text" class="form-control" id="destination">
+					</div>
+					<div class="form-row col-xs">
+						<label for="train-time">First Train Time (HHmm - military time)</label>
+						<input type="text" class="form-control" id="train-time">
+					</div>
+					<div class="form-row col-xs">
+						<label for="frequency">Frequency</label>
+						<input type="text" class="form-control" id="frequency">
+					</div>
+				</form>
+				<button class="btn btn-large btn-primary" id="submit">Submit</button>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 
-
+<script src="https://www.gstatic.com/firebasejs/5.2.0/firebase.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 crossorigin="anonymous"></script>
-<script type="javascript" src="javascript/function.js"></script>
+<script src="javascript/function.js"></script>
 </body>
 </html>
