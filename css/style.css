@@ -1,5 +1,7 @@
 .card{
 	font-family: Arial, Helvetica, sans-serif;
+	background-color: white;
+	border-radius: 5px;
 }
 .card-body{
 	border:solid;
@@ -11,7 +13,7 @@
 	border-top-right-radius: 0px;
 }	
 .card-header{
-
+	background: #dc3545;
 	color: white;
 	font-size:20px;
 	border-radius: 5px;
@@ -21,9 +23,9 @@
 }
 .jumbotron{
 	text-align: center;
-	background: #337ab7;
+	background: #dc3545;
 	color: white;
 }
-.container {
-	background-image: url("../images/train-noir.jpg");
+body{
+	background-image: url(../images/railway.jpg);
 }

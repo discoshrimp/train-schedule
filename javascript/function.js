@@ -9,20 +9,26 @@
   };
   firebase.initializeApp(config);
 
-  var database= firebase.database();
-  
-  var addTrain={
+	var database = firebase.database();
+	let addTrain={
 	  "trainName": "",
 	  "Destination":"",
 	  "trainTime":0,
 	  "trainFrequency":0,
-  };
+	}
+	let time=0;
+	
 	function clearform(){
 		$("#trainForm").find('input:text').val("");
 	}	
-$(document).ready(function(){
-	$("#submit").on("click", function(){
+
+	$(document).ready(function(){
+	
+		$("#submit").on("click", function(){
 		console.log("click success!")
+		var d=new Date();
+		var h=d.getHours();
+		var m=d.getMinutes();
 		addTrain.trainName=$("#train-name").val().trim();
 		addTrain.trainTime=$("#train-time").val().trim();
 		addTrain.Destination=$("#destination").val().trim();
@@ -30,9 +36,19 @@ $(document).ready(function(){
 		console.log(addTrain);
 		database.ref("/trainInfo").push({
 			train: addTrain
+		}).then(function(snapshot){
+			console.log(snapshot.val());
 		});
-		clearForm();
+		
+		$("#trainTable").append("<tr><td>"+addTrain.trainName+"</td><td>"
+			+addTrain.trainTime+"</td><td>"
+			+addTrain.Destination +"</td><td>"
+			+addTrain.trainFrequency+"</td><td>"
+			+h+":"+m+"</td></tr>");
+			console.log(d);
+			console.log(h)
+			console.log(m);
 	})
-
 	console.log(addTrain.trainName);
+
 })
