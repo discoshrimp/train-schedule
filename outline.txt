@@ -1,0 +1,23 @@
+i need to take the time that the train started running and when it is coming next regardless of what time it is. if i start from basic 12 maybe will be easier.
+
+
+i have a train running every 15 minutes. it is currently 3:26 am. how many time has the train run?
+
+3 hours and 26 minutes have passed
+convert to minutes = 206 minutes
+divide by train frequency = 206/15
+
+#trains=13.73...
+
+i have a train running every 9(frequency) minutes. it is currently 4:35 am(time). when will the next train arrive?
+start time = 0:00
+find hours past start time = 4hour
+convert it to minutes = 4*60= 240hourMinutes
+add minutes = 240+35 = 275totalMinutes
+divide totalMinutes by trainFrequency = totalMinutes/frequency = 30.555trainRuns...
+take remainder and multiply by frequency = .555*9 =4.995extraMinutes
+round to nearest whole minute =5extraMinutes
+extraMinute+time=4:40amnextTrain
+
+
+
