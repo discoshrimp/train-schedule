@@ -1,4 +1,4 @@
-  // Initialize Firebase
+// Initialize Firebase
 var config = {
     apiKey: "AIzaSyDolU4ZzPmtfX-bOd9R6Esu7vdCjol36KA",
     authhmin: "train-schedule-91818.firebaseapp.com",
@@ -8,8 +8,8 @@ var config = {
     messagingSenderId: "120084131527"
   };
   	firebase.initializeApp(config);
- 	now=moment();
-	let time={
+ 	var now=moment();
+	var time={
 	  "hour":0,
 	  "minute":0,
 	  "arrival":0,
@@ -21,23 +21,19 @@ var config = {
 	let addTrain={
 	  "trainName": "",
 	  "Destination":"",
-	  "trainTime":0,
-	  "trainFrequency":0,
+	  "trainTime":"",
+	  "trainFrequency":"",
 	}
 
 	//get current time
-	function updateClock(){
-		var currentTime=new Date();
-		var currentHours=currentTime.getHours();
-		var currentMinutes=currentTime.getMinutes();
-		var currentSeconds=currentTime.getSeconds();
-		var timeString=currentHours+":"+currentMinutes+":"+currentSeconds;
+	function clock(){
+		now=moment()
+		var timeString=now.hours()+":"+now.minutes()+":"+now.seconds();
+		$(".trainSchedule").html("Train Schedule: " +timeString);
 
-		time.hour=currentHours;
-		time.minute=currentMinutes;
-		
-		$(".trainSchedule").html("Train Schedule: "+timeString);
-		
+		time.hour=now.hours();
+		time.minute=now.minutes();
+		time.second=now.seconds();
 	}
 
 	//clear form function
@@ -49,18 +45,19 @@ var config = {
 	}
 
 	function nextArrival(){
-		var x=time.hour *60;
-		var totalMin=x+time.minute;
-		var remainder=totalMin % addTrain.trainFrequency;
-		time.arrival=totalMin+remainder
-		consoloe.log(time.arrival)
+		var x=(time.hour*60)+time.minute;
+		var y= parseInt(addTrain.trainFrequency);
+		var a=x%y;
+
+		time.arrival=Math.round(a)+x;
+		return time.arrival;
 
 	}
 	
 	$(document).ready(function(){
-		console.log(now);
+		console.log(time);
 		//extra clock, will be used for next arrival function later
-		setInterval("updateClock()", 1000);
+		setInterval("clock()", 1000);
 		
 		//button click listener
 		$("#submit").on("click", function(){
@@ -83,9 +80,9 @@ var config = {
 		
 		//append data to table, will replace with firebase updates later
 		$("#trainTable").append("<tr><td>"+addTrain.trainName+"</td><td>"
-			+addTrain.trainTime+"</td><td>"
 			+addTrain.Destination +"</td><td>"
-			+addTrain.trainFrequency+"</td></tr>");
+			+addTrain.trainFrequency+"</td><td>"
+			+time.arrival+"</td></tr>");
 			
 			//clears the add a train form
 			clearform();

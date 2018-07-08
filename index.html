@@ -24,11 +24,9 @@
 					<table class="table" id="trainTable">
 						<tr>
 							<th scope="col-xs">Name</th>
-							<th scope="col-xs">Time</th>
 							<th scope="col-xs">Destination</th>
-							<th scope="col-xs">Frequency</th>
+							<th scope="col-xs">Frequency(minutes)</th>
 							<th scope="col-xs">Next Arrival</th>
-							<th scope="col-xs">Minutes Away</th>
 						</tr>
 					</table>
 				</div>
@@ -50,15 +48,16 @@
 						<input type="text" class="form-control" id="destination">
 					</div>
 					<div class="form-row col-xs">
-						<label for="train-time">First Train Time (HH:mm - military time)</label>
+						<label for="train-time">First Train Time (HHmm - military time)</label>
 						<input type="text" class="form-control" id="train-time">
 					</div>
 					<div class="form-row col-xs">
-						<label for="frequency">Frequency</label>
+						<label for="frequency">Frequency(minutes)</label>
 						<input type="text" class="form-control" id="frequency">
 					</div>
 				</form>
-				<button class="btn btn-large btn-danger" id="submit">Submit</button>
+				<br>
+				<button class="btn btn-large btn-block btn-danger" id="submit">Submit</button>
 			</div>
 		</div>
 	</div>
